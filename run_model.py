@@ -30,4 +30,7 @@ predictions = pipeline.predict(features)
 predictions = df.join(pd.DataFrame(predictions))
 predictions.drop('text', inplace=True, axis=1)
 
+predictions.columns = ['review_id', 'stars_1', 'stars_2',
+                       'stars_3', 'stars_4', 'stars_5']
+
 predictions.to_csv(args.submission, index=False)
